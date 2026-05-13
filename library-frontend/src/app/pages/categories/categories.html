@@ -1,0 +1,68 @@
+<div class="container">
+
+  <h1>Library Categories</h1>
+
+  <div class="form-box">
+
+    <input
+      type="text"
+      placeholder="Category Name"
+      [(ngModel)]="category.name"
+    />
+
+    <input
+      type="text"
+      placeholder="Description"
+      [(ngModel)]="category.description"
+    />
+
+    <button (click)="saveCategory()">
+
+      {{ editMode ? 'Update Category' : 'Add Category' }}
+
+    </button>
+
+  </div>
+
+  <table>
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let c of categories">
+
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.description}}</td>
+
+        <td>
+
+          <button (click)="editCategory(c)">
+            Edit
+          </button>
+
+          <button (click)="deleteCategory(c.id)">
+            Delete
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

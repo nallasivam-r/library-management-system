@@ -1,0 +1,48 @@
+.container {
+  padding: 20px;
+}
+
+.form-box {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button:hover {
+  background: #125aa0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th {
+  background: #1976d2;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px;
+}

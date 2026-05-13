@@ -1,0 +1,127 @@
+<div class="container">
+
+  <h1>Books Management</h1>
+
+  <div class="form-box">
+
+    <input
+      type="text"
+      placeholder="Book Name"
+      [(ngModel)]="book.bookName"
+    />
+
+    <input
+      type="text"
+      placeholder="Author"
+      [(ngModel)]="book.author"
+    />
+
+    <input
+      type="text"
+      placeholder="ISBN"
+      [(ngModel)]="book.isbn"
+    />
+
+    <input
+      type="date"
+      [(ngModel)]="book.publishedDate"
+    />
+
+    <select [(ngModel)]="book.category.id">
+
+      <option value="">
+        Select Category
+      </option>
+
+      <option
+        *ngFor="let c of categories"
+        [value]="c.id"
+      >
+        {{c.name}}
+      </option>
+
+    </select>
+
+   <button (click)="saveBook()">
+
+  {{ editMode ? 'Update Book' : 'Add Book' }}
+
+</button>
+
+  </div>
+
+  <div class="filter-box">
+
+    <input
+      type="text"
+      placeholder="Search Book"
+      [(ngModel)]="searchText"
+      (input)="searchBooks()"
+    />
+
+    <select
+      [(ngModel)]="selectedCategory"
+      (change)="filterCategory()"
+    >
+
+      <option value="">
+        All Categories
+      </option>
+
+      <option
+        *ngFor="let c of categories"
+        [value]="c.id"
+      >
+        {{c.name}}
+      </option>
+
+    </select>
+
+  </div>
+
+  <table>
+
+    <thead>
+
+      <tr>
+
+        <th>ID</th>
+        <th>Book</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Action</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let b of filteredBooks">
+
+        <td>{{b.id}}</td>
+        <td>{{b.bookName}}</td>
+        <td>{{b.author}}</td>
+        <td>{{b.isbn}}</td>
+        <td>{{b.publishedDate}}</td>
+        <td>{{b.category?.name}}</td>
+
+        <td>
+<button (click)="editBook(b)">
+  Edit
+</button>
+          <button (click)="deleteBook(b.id)">
+            Delete
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
